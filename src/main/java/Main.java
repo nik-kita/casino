@@ -53,8 +53,10 @@ public class Main {
 
         for (OneSearchResultEO r : allGroups) {
             System.out.println("------------------------------------------------------");
+            System.out.println();
             System.out.println(r.getTitle());
-            System.out.format("%12s  ===========  %s", r.getMembers(), r.getPostInWeek());
+            System.out.format("%12s| %s", r.getMembers(), r.getPostInWeek());
+
             connection.createStatement().executeUpdate("INSERT INTO fb_groups(name, members, postInWeek)" +
                     " VALUES(\"" + r.getTitle() + "\", \"" + r.getMembers() + "\", \"" + r.getPostInWeek() + "\");");
         }
