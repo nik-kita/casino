@@ -13,15 +13,34 @@ public class OneSearchResultEO extends BaseElemenObject {
     }
 
     public String getTitle() {
-        return element.findElement(By.cssSelector("a[href] span")).getText();
+        String result = element.findElement(By.cssSelector("a[href] span")).getText();
+        result = filterQuotes(result, "\"");
+        result = filterQuotes(result, "'");
+        return result;
     }
 
     public String getPostInWeek() {
         List<WebElement> spans = element.findElements(By.cssSelector(".jktsbyx5 span"));
-        return spans.get(spans.size() - 1).getText();
+        String result = spans.get(spans.size() - 1).getText();
+        result = filterQuotes(result, "\"");
+        result = filterQuotes(result, "'");
+        return result;
     }
 
     public String getMembers() {
-        return element.findElement(By.cssSelector("div.sjgh65i0.tr9rh885 span>span")).getText();
+        String result =  element.findElement(By.cssSelector("div.sjgh65i0.tr9rh885 span>span")).getText();
+        result = filterQuotes(result, "\"");
+        result = filterQuotes(result, "'");
+        return result;
+    }
+    private String filterQuotes(String before, String vava) {
+        if(before.indexOf(vava) >= 0 ) {
+            String[] repair = before.split(vava);
+            before = "";
+            for(String s : repair) {
+                before += s;
+            }
+        }
+        return before;
     }
 }

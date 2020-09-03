@@ -56,6 +56,7 @@ public class Main {
             System.out.println();
             System.out.println(r.getTitle());
             System.out.format("%12s| %s", r.getMembers(), r.getPostInWeek());
+            System.out.println();
 
             connection.createStatement().executeUpdate("INSERT INTO fb_groups(name, members, postInWeek)" +
                     " VALUES(\"" + r.getTitle() + "\", \"" + r.getMembers() + "\", \"" + r.getPostInWeek() + "\");");
