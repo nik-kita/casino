@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <jdk_source_version>14</jdk_source_version>
-        <jdk_compiler_version>14</jdk_compiler_version>
+        <jdk_source_version>11</jdk_source_version>
+        <jdk_compiler_version>11</jdk_compiler_version>
 
         <aspectj.version>1.9.6</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
